@@ -14,7 +14,7 @@ const EMPTY = { projects: [], placements: [], testimonials: [], achievements: []
 export default function Home() {
   const [data, setData] = useState(null);
   useEffect(() => {
-    Promise.all(BLOCKS.map(([t]) => fetch(`https://learnershowcase-backend.onrender.com/api/${t}`).then((r) => r.json())))
+    Promise.all(BLOCKS.map(([t]) => fetch(`/api/${t}`).then((r) => r.json())))
       .then((r) => setData(Object.fromEntries(BLOCKS.map(([t], i) => [t, Array.isArray(r[i]) ? r[i] : []]))))
       .catch(() => setData(EMPTY));
   }, []);

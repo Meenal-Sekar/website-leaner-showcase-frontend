@@ -21,7 +21,7 @@ const FIELDS = {
 };
 
 const api = (path, opt = {}) =>
-  fetch("https://learnershowcase-backend.onrender.com/api" + path, {
+  fetch("/api" + path, {
     ...opt,
     headers: { "Content-Type": "application/json", Authorization: "Bearer " + (localStorage.token || "") },
     body: opt.body && JSON.stringify(opt.body),
