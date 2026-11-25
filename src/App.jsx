@@ -59,7 +59,7 @@ function Section({ info, meta }) {
       ...(region && { region }),
       ...(course && { course }),
     });
-    fetch(`/api/${type}?${qs}`)
+    fetch(`https://learnershowcase-backend.onrender.com/api/${type}?${qs}`)
       .then((r) => r.json())
       .then(setItems)
       .catch(() => setItems([]));
@@ -208,7 +208,7 @@ export default function App() {
   const [meta, setMeta] = useState({ courses: [] });
   const { pathname } = useLocation();
   useEffect(() => {
-    fetch("/api/meta/courses")
+    fetch("https://learnershowcase-backend.onrender.com/api/meta/courses")
       .then((r) => r.json())
       .then(setMeta)
       .catch(() => {});
